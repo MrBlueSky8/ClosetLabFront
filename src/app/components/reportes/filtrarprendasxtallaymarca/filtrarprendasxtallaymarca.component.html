@@ -1,0 +1,88 @@
+<div class="title-container">
+    <h1>Filtrar Prendas por Talla y Marca</h1>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="getPrendaspostFiltro()">
+      <!-- Talla -->
+      <mat-form-field>
+        <mat-label>Talla</mat-label>
+        <mat-select formControlName="id_talla" required>
+          <mat-option *ngFor="let talla of tallas" [value]="talla.id">
+            {{ talla.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('id_talla')?.hasError('required')">
+          La talla es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br/>
+      <!-- Marca -->
+      <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <mat-select formControlName="id_marca" required>
+          <mat-option *ngFor="let marca of marcas" [value]="marca.id">
+            {{ marca.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('id_marca')?.hasError('required')">
+          La marca es obligatoria.
+        </mat-error>
+      </mat-form-field>
+
+      <br/>
+      <button mat-raised-button color="primary" type="submit">Aceptar</button>
+    </form>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- ID Prenda Column -->
+      <ng-container matColumnDef="prenda_id">
+        <th mat-header-cell *matHeaderCellDef> ID Prenda </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.prenda_id }} </td>
+      </ng-container>
+  
+      <!-- Nombre de Prenda Column -->
+      <ng-container matColumnDef="nombre_prenda">
+        <th mat-header-cell *matHeaderCellDef> Nombre de Prenda </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.nombre_prenda }} </td>
+      </ng-container>
+  
+      <!-- Descripción Column -->
+      <ng-container matColumnDef="descripcion_prenda">
+        <th mat-header-cell *matHeaderCellDef> Descripción </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.descripcion_prenda }} </td>
+      </ng-container>
+  
+      <!-- Marca Column -->
+      <ng-container matColumnDef="marca">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.marca }} </td>
+      </ng-container>
+  
+      <!-- Talla Column -->
+      <ng-container matColumnDef="talla">
+        <th mat-header-cell *matHeaderCellDef> Talla </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.talla }} </td>
+      </ng-container>
+  
+      <!-- Categoría Column -->
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef> Categoría </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.categoria }} </td>
+      </ng-container>
+  
+      <!-- Cantidad en Stock Column -->
+      <ng-container matColumnDef="cantidadEnStock">
+        <th mat-header-cell *matHeaderCellDef> Cantidad en Stock </th>
+        <td mat-cell *matCellDef="let prenda"> {{ prenda.cantidadEnStock }} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  

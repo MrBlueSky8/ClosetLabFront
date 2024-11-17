@@ -1,0 +1,42 @@
+.container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 20px;
+    }
+    table {
+      font-size: 14px;
+    }
+  }
+  

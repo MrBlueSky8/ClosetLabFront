@@ -1,0 +1,68 @@
+/* Contenedor principal */
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo del título */
+  .title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title-container h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Estilo de los campos del formulario */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field input,
+  mat-form-field textarea {
+    font-size: 16px;
+  }
+  
+  mat-form-field mat-error {
+    font-size: 12px;
+    color: red;
+  }
+  
+  /* Estilo de los botones */
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  button {
+    width: 48%;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .form-container {
+      padding: 10px;
+    }
+  
+    .title-container h1 {
+      font-size: 20px;
+    }
+  
+    mat-form-field {
+      margin-bottom: 15px;
+    }
+  
+    button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  

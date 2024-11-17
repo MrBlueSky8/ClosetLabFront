@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="title-container">
+      <h1 class="title">Lista de Carrito-Prenda</h1>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- ID Carrito-Prenda Column -->
+      <ng-container matColumnDef="idcarrito_prenda">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element"> {{element.idcarrito_prenda}} </td>
+      </ng-container>
+  
+      <!-- Carrito Column -->
+      <ng-container matColumnDef="carrito">
+        <th mat-header-cell *matHeaderCellDef> Carrito </th>
+        <td mat-cell *matCellDef="let element"> {{element.carrito.id}} </td>
+      </ng-container>
+  
+      <!-- Prenda Column -->
+      <ng-container matColumnDef="prenda">
+        <th mat-header-cell *matHeaderCellDef> Prenda </th>
+        <td mat-cell *matCellDef="let element"> {{element.prenda.nombre}} </td>
+      </ng-container>
+  
+      <!-- Cantidad Column -->
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+        <td mat-cell *matCellDef="let element"> {{element.cantidad}} </td>
+      </ng-container>
+  
+      <!-- Accion01 Column -->
+      <ng-container matColumnDef="accion01">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="accent" [routerLink]="['ediciones', element.idcarrito_prenda]">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Accion02 Column -->
+      <ng-container matColumnDef="accion02">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="eliminar(element.idcarrito_prenda)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+  

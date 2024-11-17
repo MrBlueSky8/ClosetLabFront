@@ -1,0 +1,58 @@
+<div class="title-container">
+    <h1>{{ edicion ? 'Editar Carrito-Prenda' : 'Registrar Carrito-Prenda' }}</h1>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+  
+      <!-- Código (solo en edición) -->
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" readonly/>
+      </mat-form-field>
+      <br />
+  
+      <!-- Carrito -->
+      <mat-form-field>
+        <mat-label>Carrito</mat-label>
+        <mat-select formControlName="carrito_id" required>
+          <mat-option *ngFor="let carrito of carritos" [value]="carrito.id">
+            {{ carrito.id }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('carrito_id')?.hasError('required')">
+          El carrito es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Prenda -->
+      <mat-form-field>
+        <mat-label>Prenda</mat-label>
+        <mat-select formControlName="prenda_id" required>
+          <mat-option *ngFor="let prenda of prendas" [value]="prenda.id">
+            {{ prenda.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('prenda_id')?.hasError('required')">
+          La prenda es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Cantidad -->
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input matInput formControlName="cantidad" type="number" required/>
+        <mat-error *ngIf="form.get('cantidad')?.hasError('required')">
+          La cantidad es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Botón Aceptar -->
+      <div class="button-container">
+        <button mat-raised-button color="primary">Aceptar</button>
+      </div>
+    </form>
+  </div>
+  

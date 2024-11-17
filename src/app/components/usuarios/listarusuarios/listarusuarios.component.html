@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="title-container">
+      <h1 class="title">Lista de Usuarios</h1>
+    </div>
+  
+    <div class="card-container">
+      <mat-card *ngFor="let usuario of dataSource.data" class="user-card">
+        <mat-card-header>
+          <div mat-card-avatar class="user-avatar">
+            <mat-icon>account_circle</mat-icon>
+          </div>
+          <mat-card-title>{{ usuario.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ usuario.correo }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>ID:</strong> {{ usuario.id }}</p>
+          <p><strong>DNI:</strong> {{ usuario.dni }}</p>
+          <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+          <p><strong>Habilitado:</strong> {{ usuario.enabled ? 'Sí' : 'No' }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon-button color="primary" [routerLink]="['detalle', usuario.id]">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="accent" [routerLink]="['ediciones', usuario.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="eliminar(usuario.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+  

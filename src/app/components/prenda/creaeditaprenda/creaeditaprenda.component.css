@@ -1,0 +1,28 @@
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  form {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  button {
+    margin: 0 10px;
+  }

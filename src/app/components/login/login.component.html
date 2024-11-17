@@ -1,0 +1,23 @@
+<div class="container">
+  <div>
+    <h2>Inicie Sesión</h2>
+    <mat-form-field>
+      <mat-label>Usuario</mat-label>
+      <input matInput placeholder="Ingrese su usuario" [(ngModel)]="username" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Contraseña</mat-label>
+      <input
+        type="password"
+        matInput
+        placeholder="Ingrese su contraseña"
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+    <div class="button-group">
+      <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+      <button mat-raised-button color="accent" (click)="navigateToRegister()">Registrarse</button>
+    </div>
+    <button mat-raised-button color="warn" (click)="navigateToLanding()">Volver</button>
+  </div>
+</div>

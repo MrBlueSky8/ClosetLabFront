@@ -1,0 +1,52 @@
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title-container h1 {
+    color: #D81159; 
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .table-container {
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+    color: #D81159; 
+    font-weight: bold;
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .mat-paginator {
+    color:#D81159; 
+  }
+  
+  .mat-paginator .mat-button {
+    color:#D81159; 
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  

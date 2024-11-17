@@ -1,0 +1,52 @@
+<div class="title-container">
+  <h1>Reporte de Calificaciones de Productos</h1>
+</div>
+<div class="table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- ID Prenda Column -->
+    <ng-container matColumnDef="prenda_id">
+      <th mat-header-cell *matHeaderCellDef> ID Prenda </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.prenda_id }} </td>
+    </ng-container>
+
+    <!-- Nombre de Prenda Column -->
+    <ng-container matColumnDef="nombre_prenda">
+      <th mat-header-cell *matHeaderCellDef> Nombre de Prenda </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.nombre_prenda }} </td>
+    </ng-container>
+
+    <!-- Descripción de Prenda Column -->
+    <ng-container matColumnDef="descripcion_prenda">
+      <th mat-header-cell *matHeaderCellDef> Descripción de Prenda </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.descripcion_prenda }} </td>
+    </ng-container>
+
+    <!-- Marca Column -->
+    <ng-container matColumnDef="marca">
+      <th mat-header-cell *matHeaderCellDef> Marca </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.marca }} </td>
+    </ng-container>
+
+    <!-- Categoría Column -->
+    <ng-container matColumnDef="categoria">
+      <th mat-header-cell *matHeaderCellDef> Categoría </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.categoria }} </td>
+    </ng-container>
+
+    <!-- Promedio de Calificación Column -->
+    <ng-container matColumnDef="promedio_calificacion">
+      <th mat-header-cell *matHeaderCellDef> Promedio de Calificación </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.promedio_calificacion | number: '1.1-1' }} </td>
+    </ng-container>
+
+    <!-- Comentarios Column -->
+    <ng-container matColumnDef="comentarios">
+      <th mat-header-cell *matHeaderCellDef> Comentarios </th>
+      <td mat-cell *matCellDef="let producto"> {{ producto.comentarios }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

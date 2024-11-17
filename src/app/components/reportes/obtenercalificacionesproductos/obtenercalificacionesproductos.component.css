@@ -1,0 +1,34 @@
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .table-container {
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .mat-header-cell {
+    background-color: #3f51b5; /* Azul del tema de Angular Material */
+    color: white;
+    font-weight: bold;
+  }
+  
+  .mat-cell {
+    background-color: #e8eaf6; /* Azul claro del tema de Angular Material */
+  }
+  
+  .mat-row:nth-child(even) .mat-cell {
+    background-color: #c5cae9; /* Azul más claro del tema de Angular Material */
+  }
+  

@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #3f51b5, #1a237e);
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  .container div {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .mat-form-field .mat-input-element {
+    color: white;
+  }
+  
+  .mat-form-field.mat-focused .mat-label {
+    color: #ffeb3b;
+  }
+  
+  .mat-form-field .mat-label {
+    color: white;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    width: 48%;
+  }
+  
+  button.mat-raised-button {
+    border-radius: 25px;
+    font-weight: bold;
+  }
+  
+  button.mat-raised-button[color="primary"] {
+    background: #ffeb3b;
+    color: black;
+  }
+  
+  button.mat-raised-button[color="accent"] {
+    background: #64b5f6;
+    color: black;
+  }
+  
+  button.mat-raised-button[color="warn"] {
+    background: #e53935;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .mat-form-field-underline {
+    background-color: white;
+  }
+  
+  .mat-form-field-ripple {
+    background-color: #ffeb3b;
+  }
+  

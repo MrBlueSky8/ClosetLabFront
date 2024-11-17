@@ -1,0 +1,106 @@
+<div class="title-container">
+    <h1>{{ edicion ? 'Editar Prenda' : 'Registrar Prenda' }}</h1>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+  
+      <!-- Código (solo en edición) -->
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" readonly />
+      </mat-form-field>
+      <br />
+  
+      <!-- Nombre -->
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" required />
+        <mat-error *ngIf="form.get('nombre')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Descripción -->
+      <mat-form-field>
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="descipcion" required />
+        <mat-error *ngIf="form.get('descipcion')?.hasError('required')">
+          La descripción es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Marca -->
+      <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <mat-select formControlName="marca_id" required>
+          <mat-option *ngFor="let marca of marca" [value]="marca.id">
+            {{ marca.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('marca_id')?.hasError('required')">
+          La marca es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Talla -->
+      <mat-form-field>
+        <mat-label>Talla</mat-label>
+        <mat-select formControlName="talla_id" required>
+          <mat-option *ngFor="let talla of talla" [value]="talla.id">
+            {{ talla.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('talla_id')?.hasError('required')">
+          La talla es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Categoría -->
+      <mat-form-field>
+        <mat-label>Categoría</mat-label>
+        <mat-select formControlName="categoria_id" required>
+          <mat-option *ngFor="let categoria of categoria" [value]="categoria.id">
+            {{ categoria.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('categoria_id')?.hasError('required')">
+          La categoría es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Tipo -->
+      <mat-form-field>
+        <mat-label>Tipo</mat-label>
+        <mat-select formControlName="tipo_id" required>
+          <mat-option *ngFor="let tipo of tipo" [value]="tipo.id">
+            {{ tipo.nombre }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('tipo_id')?.hasError('required')">
+          El tipo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Cantidad en Stock -->
+      <mat-form-field>
+        <mat-label>Cantidad en Stock</mat-label>
+        <input matInput type="number" formControlName="cantidadEnStock" required />
+        <mat-error *ngIf="form.get('cantidadEnStock')?.hasError('required')">
+          La cantidad en stock es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+      <!-- Botón Aceptar -->
+      <div class="button-container">
+        <button mat-raised-button color="primary">Aceptar</button>
+      </div>
+    </form>
+  </div>
+  

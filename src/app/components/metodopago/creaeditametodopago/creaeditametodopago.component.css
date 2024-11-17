@@ -1,0 +1,47 @@
+.container {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .title-container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 16px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  button {
+    margin-right: 8px;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 20px;
+    }
+    .mat-form-field {
+      width: 100%;
+    }
+  }
+  

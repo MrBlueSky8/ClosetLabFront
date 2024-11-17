@@ -1,0 +1,264 @@
+<!-- Barra de herramientas -->
+<mat-toolbar color="primary" *ngIf="verificar()">
+  <!-- Botón Home -->
+  <button mat-button routerLink="/homes">
+    <mat-icon>home</mat-icon>Home
+  </button>
+
+  <!-- Menú Productos -->
+  <button mat-button [matMenuTriggerFor]="menuProductos">
+    <mat-icon>style</mat-icon>Productos
+  </button>
+
+  <!-- Menú Usuarios (Solo visible para administradores) -->
+  <button mat-button *ngIf="isAdmin()" [matMenuTriggerFor]="menuUsuarios">
+    <mat-icon>person</mat-icon>Usuarios
+  </button>
+
+  <!-- Menú Carritos -->
+  <button mat-button [matMenuTriggerFor]="menuCarritos">
+    <mat-icon>shopping_cart</mat-icon>Carritos
+  </button>
+
+  <!-- Menú Pagos -->
+  <button mat-button [matMenuTriggerFor]="menuPagos">
+    <mat-icon>payment</mat-icon>Pagos
+  </button>
+
+  <!-- Menú Reseñas -->
+  <button mat-button [matMenuTriggerFor]="menuResenias">
+    <mat-icon>rate_review</mat-icon>Reseñas
+  </button>
+
+  <!-- Menú Reportes -->
+  <button mat-button [matMenuTriggerFor]="menuReport">
+    <mat-icon>insert_drive_file</mat-icon>Reportes
+  </button>
+
+  <!-- Menú Sesión -->
+  <button mat-button [matMenuTriggerFor]="menuSesion">
+    <mat-icon>account_circle</mat-icon>Sesión
+  </button>
+</mat-toolbar>
+
+<!-- Menú Productos -->
+<mat-menu #menuProductos="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="menuPrenda">
+    <mat-icon>style</mat-icon>Prenda
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuMarca">
+    <mat-icon>loyalty</mat-icon>Marca
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuTalla">
+    <mat-icon>straighten</mat-icon>Talla
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuCategoria">
+    <mat-icon>category</mat-icon>Categoría
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuTipoPrenda">
+    <mat-icon>checkroom</mat-icon>Tipo de Prenda
+  </button>
+</mat-menu>
+
+<!-- Menú Usuarios -->
+<mat-menu #menuUsuarios="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="menuUsuario">
+    <mat-icon>person</mat-icon>Usuario
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuTiposdeUsuario">
+    <mat-icon>fingerprint</mat-icon>Tipos de Usuario
+  </button>
+</mat-menu>
+
+<!-- Menú Carritos -->
+<mat-menu #menuCarritos="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="menuCarrito">
+    <mat-icon>shopping_cart</mat-icon>Carrito
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuEstadoCarrito">
+    <mat-icon>bookmark</mat-icon>Estado Carrito
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuCarritoPrenda">
+    <mat-icon>shopping_basket</mat-icon>Carrito Prendas
+  </button>
+</mat-menu>
+
+<!-- Menú Pagos -->
+<mat-menu #menuPagos="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="menuPago">
+    <mat-icon>account_balance_wallet</mat-icon>Pago
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="menuMetodoPago">
+    <mat-icon>payment</mat-icon>Método de Pago
+  </button>
+</mat-menu>
+
+<!-- Menú Reseñas -->
+<mat-menu #menuResenias="matMenu">
+  <button mat-menu-item [matMenuTriggerFor]="menuReseniaPrenda">
+    <mat-icon>rate_review</mat-icon>Reseña Prenda
+  </button>
+</mat-menu>
+
+<!-- Menú Reportes -->
+<mat-menu #menuReport="matMenu">
+  <button mat-menu-item routerLink="/reportes">Ingresos Mensuales</button>
+  <button mat-menu-item routerLink="/reportes/reporte02">Mi Historial de Compras</button>
+  <button mat-menu-item routerLink="/reportes/reporte03">Inventario Crítico</button>
+  <button mat-menu-item routerLink="/reportes/reporte04">Clientes Activos x Mes</button>
+  <button mat-menu-item routerLink="/reportes/reporte05">Filtrar Prendas por Talla y Marca</button>
+  <button mat-menu-item routerLink="/reportes/reporte06">Puntaje Promedio por Prenda</button>
+  <button mat-menu-item routerLink="/reportes/reporte07">Reseñas por Prendas</button>
+  <button mat-menu-item routerLink="/reportes/reporte08">Prendas Más Vendidas por Marca</button>
+  <button mat-menu-item routerLink="/reportes/reporte09">Métodos de Pago Más Usados</button>
+</mat-menu>
+
+<!-- Menú Sesión -->
+<mat-menu #menuSesion="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <span>Usuario: {{ user }}</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>person_pin</mat-icon>
+    <span>Rol: {{ role }}</span>
+  </button>
+</mat-menu>
+
+<!-- Submenús de cada entidad -->
+
+<!-- Menú Prenda -->
+<mat-menu #menuPrenda="matMenu">
+  <button mat-menu-item routerLink="/prenda/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/prenda">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Marca -->
+<mat-menu #menuMarca="matMenu">
+  <button mat-menu-item routerLink="/marca/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/marca">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Talla -->
+<mat-menu #menuTalla="matMenu">
+  <button mat-menu-item routerLink="/talla/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/talla">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Categoría -->
+<mat-menu #menuCategoria="matMenu">
+  <button mat-menu-item routerLink="/categoria/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/categoria">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Tipo de Prenda -->
+<mat-menu #menuTipoPrenda="matMenu">
+  <button mat-menu-item routerLink="/tiposdeprenda/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/tiposdeprenda">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Usuario -->
+<mat-menu #menuUsuario="matMenu">
+  <button mat-menu-item routerLink="/usuarios/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/usuarios">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Tipos de Usuario -->
+<mat-menu #menuTiposdeUsuario="matMenu">
+  <button mat-menu-item routerLink="/tiposdeusuario/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/tiposdeusuario">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Carrito -->
+<mat-menu #menuCarrito="matMenu">
+  <button mat-menu-item routerLink="/carrito/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/carrito">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Estado Carrito -->
+<mat-menu #menuEstadoCarrito="matMenu">
+  <button mat-menu-item routerLink="/estadoscarrito/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/estadoscarrito">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Carrito Prenda -->
+<mat-menu #menuCarritoPrenda="matMenu">
+  <button mat-menu-item routerLink="/carritoPrenda/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/carritoPrenda">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Pago -->
+<mat-menu #menuPago="matMenu">
+  <button mat-menu-item routerLink="/pago/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/pago">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Método de Pago -->
+<mat-menu #menuMetodoPago="matMenu">
+  <button mat-menu-item routerLink="/metodopago/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/metodopago">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<!-- Menú Reseña Prenda -->
+<mat-menu #menuReseniaPrenda="matMenu">
+  <button mat-menu-item routerLink="/reseñaprenda/nuevo">
+    <mat-icon>add_circle</mat-icon>Registrar
+  </button>
+  <button mat-menu-item routerLink="/reseñaprenda">
+    <mat-icon>list</mat-icon>Listar
+  </button>
+</mat-menu>
+
+<router-outlet></router-outlet>

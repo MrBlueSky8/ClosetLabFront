@@ -1,0 +1,93 @@
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3f51b5;
+}
+
+.form-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Para adaptarse en pantallas pequeñas */
+    gap: 15px;
+}
+
+mat-form-field {
+    width: 100%; /* Ajusta el ancho del input */
+    max-width: 400px; /* Ancho máximo */
+}
+
+button {
+    margin-top: 10px;
+    align-self: center; /* Centra el botón */
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+}
+
+.table-container {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 1200px; /* Limita el ancho máximo */
+    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+}
+
+table {
+    width: 100%;
+    border-spacing: 0; /* Elimina el espacio entre celdas */
+    border-collapse: collapse; /* Combina bordes de tabla */
+}
+
+.mat-elevation-z8 {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff; /* Fondo blanco para contraste */
+}
+
+.mat-header-cell {
+    background-color: #3f51b5; /* Azul del tema de Angular Material */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+.mat-cell {
+    background-color: #e8eaf6; /* Azul claro del tema de Angular Material */
+    padding: 10px;
+    text-align: center;
+}
+
+.mat-row:nth-child(even) .mat-cell {
+    background-color: #c5cae9; /* Azul más claro del tema de Angular Material */
+}
+
+.mat-row:hover {
+    background-color: #bbdefb; /* Efecto de hover para filas */
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column; /* Alinea los elementos verticalmente */
+        align-items: center;
+    }
+
+    mat-form-field, .button-container {
+        width: 100%; /* Ancho completo en pantallas pequeñas */
+    }
+
+    .table-container {
+        width: 100%; /* Ocupa todo el ancho */
+    }
+
+    .mat-header-cell, .mat-cell {
+        font-size: 0.9rem; /* Reduce el tamaño del texto */
+    }
+}

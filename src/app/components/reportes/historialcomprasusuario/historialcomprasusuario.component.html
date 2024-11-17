@@ -1,0 +1,67 @@
+<div class="title-container">
+    <h1>Historial de Compras por Usuario: {{ userEmail }}</h1>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+        <!-- Fecha de Compra Column -->
+        <ng-container matColumnDef="fecha_compra">
+            <th mat-header-cell *matHeaderCellDef> Fecha de Compra </th>
+            <td mat-cell *matCellDef="let element"> {{ element.fecha_compra | date: 'shortDate' }} </td>
+        </ng-container>
+  
+        <!-- Nombre de Prenda Column -->
+        <ng-container matColumnDef="nombre_prenda">
+            <th mat-header-cell *matHeaderCellDef> Nombre de Prenda </th>
+            <td mat-cell *matCellDef="let element"> {{ element.nombre_prenda }} </td>
+        </ng-container>
+  
+        <!-- Descripción de Prenda Column -->
+        <ng-container matColumnDef="descripcion_prenda">
+            <th mat-header-cell *matHeaderCellDef> Descripción de Prenda </th>
+            <td mat-cell *matCellDef="let element"> {{ element.descripcion_prenda }} </td>
+        </ng-container>
+  
+        <!-- Marca Column -->
+        <ng-container matColumnDef="marca">
+            <th mat-header-cell *matHeaderCellDef> Marca </th>
+            <td mat-cell *matCellDef="let element"> {{ element.marca }} </td>
+        </ng-container>
+  
+        <!-- Categoría Column -->
+        <ng-container matColumnDef="categoria">
+            <th mat-header-cell *matHeaderCellDef> Categoría </th>
+            <td mat-cell *matCellDef="let element"> {{ element.categoria }} </td>
+        </ng-container>
+  
+        <!-- Talla Column -->
+        <ng-container matColumnDef="talla">
+            <th mat-header-cell *matHeaderCellDef> Talla </th>
+            <td mat-cell *matCellDef="let element"> {{ element.talla }} </td>
+        </ng-container>
+  
+        <!-- Tipo de Prenda Column -->
+        <ng-container matColumnDef="tipo_prenda">
+            <th mat-header-cell *matHeaderCellDef> Tipo de Prenda </th>
+            <td mat-cell *matCellDef="let element"> {{ element.tipo_prenda }} </td>
+        </ng-container>
+  
+        <!-- Método de Pago Column -->
+        <ng-container matColumnDef="metodo_pago">
+            <th mat-header-cell *matHeaderCellDef> Método de Pago </th>
+            <td mat-cell *matCellDef="let element"> {{ element.metodo_pago }} </td>
+        </ng-container>
+  
+        <!-- Total de Pago Column -->
+        <ng-container matColumnDef="total_pago">
+            <th mat-header-cell *matHeaderCellDef> Total de Pago </th>
+            <td mat-cell *matCellDef="let element"> {{ element.total_pago | currency }} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  

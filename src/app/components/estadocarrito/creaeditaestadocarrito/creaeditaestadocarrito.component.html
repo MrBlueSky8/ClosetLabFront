@@ -1,0 +1,30 @@
+<div class="title-container">
+    <h1>{{ edicion ? 'Editar Estado Carrito' : 'Registrar Estado Carrito' }}</h1>
+  </div>
+  <div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+  
+      <!-- Código (solo en edición) -->
+      <mat-form-field *ngIf="edicion">
+        <mat-label>Código</mat-label>
+        <input matInput formControlName="codigo" readonly/>
+      </mat-form-field>
+      <br />
+  
+      <!-- Rol -->
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" required/>
+        <mat-error *ngIf="form.get('rol')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+      </mat-form-field>
+      <br />
+  
+  
+      <!-- Botón Aceptar -->
+      <div class="button-container">
+        <button mat-raised-button color="primary">Aceptar</button>
+      </div>
+    </form>
+  </div>

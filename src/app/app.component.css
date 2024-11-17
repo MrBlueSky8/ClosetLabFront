@@ -1,0 +1,24 @@
+/* Estilos para el mat-toolbar y botones */
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #07a78c; /* Color de fondo del mat-toolbar */
+  color: white; /* Color del texto */
+}
+
+.mat-toolbar button {
+  margin-right: 10px;
+}
+
+.mat-menu-item mat-icon {
+  margin-right: 8px;
+}
+
+.mat-button {
+  color: white; /* Color del texto de los botones */
+}
+
+.mat-button:hover {
+  background-color: #06a68c; /* Cambio de color de fondo al pasar el mouse */
+  color: white; /* Cambio de color del texto al pasar el mouse */
+}

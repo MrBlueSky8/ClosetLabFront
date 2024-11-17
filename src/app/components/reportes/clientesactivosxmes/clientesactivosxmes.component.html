@@ -1,0 +1,16 @@
+<div class="title-container">
+    <div stryle="text-align: center" class="title">
+        <h1>Clientes Activos x Mes</h1>
+    </div>
+    <div stryle="text-align: center" class="chart-container">
+        <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLables"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [type]="barChartType"
+        >
+        </canvas>
+  </div>
+</div>

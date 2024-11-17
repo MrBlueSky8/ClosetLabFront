@@ -1,0 +1,83 @@
+<div class="title-container">
+    <h1>{{ edicion ? 'Editar Pago' : 'Registrar Pago' }}</h1>
+</div>
+<div class="form-container">
+    <form [formGroup]="form" (ngSubmit)="aceptar()">
+
+        <!-- Código (solo en edición) -->
+        <mat-form-field *ngIf="edicion">
+            <mat-label>Código</mat-label>
+            <input matInput formControlName="codigo" readonly />
+        </mat-form-field>
+        <br />
+
+        <!-- Método de Pago -->
+        <mat-form-field>
+            <mat-label>Método de Pago</mat-label>
+            <mat-select formControlName="metodoPago_id" required>
+                <mat-option *ngFor="let metodo of metodosPagos" [value]="metodo.id">
+                    {{ metodo.nombre }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('metodoPago_id')?.hasError('required')">
+                El método de pago es obligatorio.
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Carrito -->
+        <mat-form-field>
+            <mat-label>Carrito</mat-label>
+            <mat-select formControlName="carrito_id" required>
+                <mat-option *ngFor="let carrito of carritos" [value]="carrito.id">
+                    {{ carrito.id }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('carrito_id')?.hasError('required')">
+                El carrito es obligatorio.
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Usuario -->
+        <mat-form-field>
+            <mat-label>Usuario</mat-label>
+            <mat-select formControlName="user_id" required>
+                <mat-option *ngFor="let usuario of usuarios" [value]="usuario.id">
+                    {{ usuario.correo }}
+                </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('user_id')?.hasError('required')">
+                El usuario es obligatorio.
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Monto Total -->
+        <mat-form-field>
+            <mat-label>Monto Total</mat-label>
+            <input matInput type="number" formControlName="montoTotal" required />
+            <mat-error *ngIf="form.get('montoTotal')?.hasError('required')">
+                El monto total es obligatorio.
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Fecha de Pago -->
+        <mat-form-field appearance="fill" class="example-full-width">
+            <input matInput [matDatepicker]="picker" formControlName="fechaPago" placeholder="Ingrese fecha de pago" />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="form.get('fechaPago')?.hasError('required')">
+                La fecha de pago es obligatoria.
+            </mat-error>
+        </mat-form-field>
+        <br />
+
+        <!-- Botón Aceptar -->
+        <div class="button-container">
+            <button mat-raised-button color="primary">Aceptar</button>
+        </div>
+    </form>
+</div>
